@@ -9,9 +9,15 @@
 import Foundation
 
 class ChecklistItem {
-  var text = ""
-  var checked = false
-  
+  let text: String
+  var checked: Bool
+
+  init(text: String, checked: Bool)
+  {
+    self.text = text
+    self.checked = checked
+  }
+
   func toggleChecked() {
     checked = !checked
   }

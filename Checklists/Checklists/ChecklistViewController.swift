@@ -8,35 +8,30 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController {
-  var items: [ChecklistItem]
+class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
+
+  private var items: [ChecklistItem]
+  private func insertItem(_ item: ChecklistItem, at row: Int) {
+    items.append(item)
+    tableView.insertRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
+  }
 
   required init?(coder aDecoder: NSCoder) {
     items = [ChecklistItem]()
     
-    let row0item = ChecklistItem()
-    row0item.text = "Walk the dog"
-    row0item.checked = false
+    let row0item = ChecklistItem(text: "Walk the dog", checked: false)
     items.append(row0item)
     
-    let row1item = ChecklistItem()
-    row1item.text = "Brush my teeth"
-    row1item.checked = true
+    let row1item = ChecklistItem(text: "Brush my teeth", checked: true)
     items.append(row1item)
     
-    let row2item = ChecklistItem()
-    row2item.text = "Learn iOS development"
-    row2item.checked = true
+    let row2item = ChecklistItem(text: "Learn iOS development", checked: true)
     items.append(row2item)
     
-    let row3item = ChecklistItem()
-    row3item.text = "Soccer practice"
-    row3item.checked = false
+    let row3item = ChecklistItem(text: "Soccer practice", checked: false)
     items.append(row3item)
     
-    let row4item = ChecklistItem()
-    row4item.text = "Eat ice cream"
-    row4item.checked = true
+    let row4item = ChecklistItem(text: "Eat ice cream", checked: true)
     items.append(row4item)
     
     super.init(coder: aDecoder)
@@ -80,6 +75,14 @@ class ChecklistViewController: UITableViewController {
     tableView.deselectRow(at: indexPath, animated: true)
   }
 
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      items.remove(at: indexPath.row)
+      tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+  }
+
+
   func configureCheckmark(for cell: UITableViewCell,
                           with item: ChecklistItem) {
     if item.checked {
@@ -93,5 +96,22 @@ class ChecklistViewController: UITableViewController {
                      with item: ChecklistItem) {
     let label = cell.viewWithTag(1000) as! UILabel
     label.text = item.text
+  }
+
+  func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+    controller.dismiss(animated: true, completion: nil)
+  }
+
+  func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem) {
+    insertItem(item, at: items.count)
+    controller.dismiss(animated: true, completion: nil)
+  }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "AddItem",
+      let nav = segue.destination as? UINavigationController,
+      let dvc = nav.topViewController as? AddItemViewController {
+      dvc.delegate = self
+    }
   }
 }
