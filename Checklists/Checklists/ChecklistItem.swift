@@ -8,8 +8,8 @@
 
 import Foundation
 
-class ChecklistItem {
-  let text: String
+class ChecklistItem: NSObject { // to work with array.index(of:)
+  var text: String
   var checked: Bool
 
   init(text: String, checked: Bool)

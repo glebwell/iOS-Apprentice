@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
+class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
 
   private var items: [ChecklistItem]
   private func insertItem(_ item: ChecklistItem, at row: Int) {
@@ -82,14 +82,11 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     }
   }
 
-
   func configureCheckmark(for cell: UITableViewCell,
                           with item: ChecklistItem) {
-    if item.checked {
-      cell.accessoryType = .checkmark
-    } else {
-      cell.accessoryType = .none
-    }
+
+    let label = cell.viewWithTag(1001) as! UILabel
+    label.text = item.checked ? "✔︎" : ""
   }
   
   func configureText(for cell: UITableViewCell,
@@ -98,20 +95,37 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     label.text = item.text
   }
 
-  func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
-    controller.dismiss(animated: true, completion: nil)
+  func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
+    dismiss(animated: true, completion: nil)
   }
 
-  func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem) {
+  func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
     insertItem(item, at: items.count)
-    controller.dismiss(animated: true, completion: nil)
+    dismiss(animated: true, completion: nil)
+  }
+
+  func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
+    if let index = items.index(of: item) {
+      let indexPath = IndexPath(row: index, section: 0)
+      if let cell = tableView.cellForRow(at: indexPath) {
+        configureText(for: cell, with: item)
+      }
+    }
+    dismiss(animated: true, completion: nil)
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "AddItem",
-      let nav = segue.destination as? UINavigationController,
-      let dvc = nav.topViewController as? AddItemViewController {
-      dvc.delegate = self
+    if let nav = segue.destination as? UINavigationController,
+      let dvc = nav.topViewController as? ItemDetailViewController {
+      if segue.identifier == "AddItem" {
+        dvc.delegate = self
+      } else {
+        if let cell = sender as? UITableViewCell,
+          let indexPath = tableView.indexPath(for: cell) {
+          dvc.itemToEdit = items[indexPath.row]
+          dvc.delegate = self
+        }
+      }
     }
   }
 }

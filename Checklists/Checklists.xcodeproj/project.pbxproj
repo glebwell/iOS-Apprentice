@@ -13,19 +13,19 @@
 		7B2952A51D2A44A3000B9D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B2952A41D2A44A3000B9D60 /* Assets.xcassets */; };
 		7B2952A81D2A44A3000B9D60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B2952A61D2A44A3000B9D60 /* LaunchScreen.storyboard */; };
 		7B2952B01D2BA9AA000B9D60 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2952AF1D2BA9AA000B9D60 /* ChecklistItem.swift */; };
-		8432FAE91F260A5B00E1A361 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FAE81F260A5B00E1A361 /* AddItemViewController.swift */; };
+		8432FAE91F260A5B00E1A361 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FAE81F260A5B00E1A361 /* ItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7B29529A1D2A44A3000B9D60 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B29529D1D2A44A3000B9D60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7B29529F1D2A44A3000B9D60 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
+		7B29529F1D2A44A3000B9D60 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ChecklistViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		7B2952A21D2A44A3000B9D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B2952A41D2A44A3000B9D60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B2952A71D2A44A3000B9D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B2952A91D2A44A3000B9D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B2952AF1D2BA9AA000B9D60 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
-		8432FAE81F260A5B00E1A361 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		8432FAE81F260A5B00E1A361 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ItemDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 				7B29529D1D2A44A3000B9D60 /* AppDelegate.swift */,
 				7B29529F1D2A44A3000B9D60 /* ChecklistViewController.swift */,
 				7B2952A11D2A44A3000B9D60 /* Main.storyboard */,
-				8432FAE81F260A5B00E1A361 /* AddItemViewController.swift */,
+				8432FAE81F260A5B00E1A361 /* ItemDetailViewController.swift */,
 				7B2952A41D2A44A3000B9D60 /* Assets.xcassets */,
 				7B2952A61D2A44A3000B9D60 /* LaunchScreen.storyboard */,
 				7B2952A91D2A44A3000B9D60 /* Info.plist */,
@@ -145,7 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B2952A01D2A44A3000B9D60 /* ChecklistViewController.swift in Sources */,
-				8432FAE91F260A5B00E1A361 /* AddItemViewController.swift in Sources */,
+				8432FAE91F260A5B00E1A361 /* ItemDetailViewController.swift in Sources */,
 				7B2952B01D2BA9AA000B9D60 /* ChecklistItem.swift in Sources */,
 				7B29529E1D2A44A3000B9D60 /* AppDelegate.swift in Sources */,
 			);
