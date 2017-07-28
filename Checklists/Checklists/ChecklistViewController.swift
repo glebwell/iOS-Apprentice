@@ -35,6 +35,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     items.append(row4item)
     
     super.init(coder: aDecoder)
+    print("Documents folder is \(documentsDirectory())")
+    print("Data file path is \(dataFilePath())")
   }
   
   override func viewDidLoad() {
@@ -73,6 +75,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
       configureCheckmark(for: cell, with: item)
     }
     tableView.deselectRow(at: indexPath, animated: true)
+    saveChecklistItems()
   }
 
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -80,6 +83,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
       items.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .automatic)
     }
+    saveChecklistItems()
   }
 
   func configureCheckmark(for cell: UITableViewCell,
@@ -102,6 +106,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
   func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
     insertItem(item, at: items.count)
     dismiss(animated: true, completion: nil)
+    saveChecklistItems()
   }
 
   func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
@@ -112,6 +117,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
       }
     }
     dismiss(animated: true, completion: nil)
+    saveChecklistItems()
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -127,5 +133,23 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         }
       }
     }
+  }
+
+  private func documentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+  }
+
+  private func dataFilePath() -> URL {
+    return documentsDirectory().appendingPathComponent("Checklists.plist")
+  }
+
+  private func saveChecklistItems() {
+    print("Save checklist items")
+    let data = NSMutableData()
+    let archiver = NSKeyedArchiver(forWritingWith: data)
+    archiver.encode(data, forKey: "ChecklistItems")
+    archiver.finishEncoding()
+    data.write(to: dataFilePath(), atomically: true)
   }
 }
