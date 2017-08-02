@@ -10,6 +10,7 @@ import UIKit
 
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
 
+  var checklist: Checklist!
   private var items: [ChecklistItem]
   private func insertItem(_ item: ChecklistItem, at row: Int) {
     items.append(item)
@@ -18,35 +19,15 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
 
   required init?(coder aDecoder: NSCoder) {
     items = [ChecklistItem]()
-    
-    let row0item = ChecklistItem(text: "Walk the dog", checked: false)
-    items.append(row0item)
-    
-    let row1item = ChecklistItem(text: "Brush my teeth", checked: true)
-    items.append(row1item)
-    
-    let row2item = ChecklistItem(text: "Learn iOS development", checked: true)
-    items.append(row2item)
-    
-    let row3item = ChecklistItem(text: "Soccer practice", checked: false)
-    items.append(row3item)
-    
-    let row4item = ChecklistItem(text: "Eat ice cream", checked: true)
-    items.append(row4item)
-    
     super.init(coder: aDecoder)
-    print("Documents folder is \(documentsDirectory())")
-    print("Data file path is \(dataFilePath())")
+    //print("Documents folder is \(documentsDirectory())")
+    //print("Data file path is \(dataFilePath())")
+    loadChecklistItems()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+    title = checklist.name
   }
   
   override func tableView(_ tableView: UITableView,
@@ -148,8 +129,17 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     print("Save checklist items")
     let data = NSMutableData()
     let archiver = NSKeyedArchiver(forWritingWith: data)
-    archiver.encode(data, forKey: "ChecklistItems")
+    archiver.encode(items, forKey: "ChecklistItems")
     archiver.finishEncoding()
     data.write(to: dataFilePath(), atomically: true)
+  }
+
+  private func loadChecklistItems() {
+    let path = dataFilePath()
+    if let data = try? Data(contentsOf: path) {
+      let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+      items =  unarchiver.decodeObject(forKey: "ChecklistItems") as! [ChecklistItem]
+      unarchiver.finishDecoding()
+    }
   }
 }
