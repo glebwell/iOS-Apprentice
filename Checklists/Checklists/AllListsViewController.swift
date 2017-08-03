@@ -62,6 +62,16 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     tableView.deleteRows(at: indexPaths, with: .automatic)
   }
 
+  override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+    let navController = storyboard!.instantiateViewController(withIdentifier: "ListDetailNavigationController") as! UINavigationController
+    let controller = navController.topViewController as! ListDetailViewController
+    controller.delegate = self
+    let checklist = lists[indexPath.row]
+    controller.checklistToEdit = checklist
+
+    present(navController, animated: true, completion: nil)
+  }
+
   private func makeCell(for tableView: UITableView) -> UITableViewCell {
     let cellIdentifier = "Cell"
     if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
@@ -75,7 +85,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     if segue.identifier == "ShowChecklist" {
       let controller = segue.destination as! ChecklistViewController
       controller.checklist = sender as! Checklist
-    } else if segue.identifier == "AddCheckList" {
+    } else if segue.identifier == "AddChecklist" {
       let navigationController = segue.destination as! UINavigationController
       let controller = navigationController.topViewController as! ListDetailViewController
       controller.delegate = self

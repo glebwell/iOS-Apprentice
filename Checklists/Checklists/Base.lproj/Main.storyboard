@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b4Z-Mz-sgD" id="GVO-6I-JIG">
-                                    <rect key="frame" x="0.0" y="0.0" width="308" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="308" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XsD-2Y-3HK">
@@ -88,7 +88,7 @@
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sDS-ru-qVS" id="tIc-bp-2OQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the item" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l9A-0O-y2U">
@@ -170,7 +170,7 @@
         <!--Add Checklist-->
         <scene sceneID="7Gt-3p-QO1">
             <objects>
-                <tableViewController id="cB3-5h-iED" customClass="ListDetailViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ListDetailController" id="cB3-5h-iED" customClass="ListDetailViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="x6S-4x-SIV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,16 +182,16 @@
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bvP-wz-M9j" id="jZh-zE-GHt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of the List" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6nP-U3-uJZ">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the List" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6nP-U3-uJZ">
                                                     <rect key="frame" x="8" y="8" width="359" height="27.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
-                                                        <action selector="done" destination="cB3-5h-iED" eventType="editingDidEnd" id="pW7-4h-S0T"/>
+                                                        <action selector="done" destination="cB3-5h-iED" eventType="editingDidEndOnExit" id="n6e-d6-oIR"/>
                                                         <outlet property="delegate" destination="cB3-5h-iED" id="Ldl-eO-rYf"/>
                                                     </connections>
                                                 </textField>
@@ -215,17 +215,17 @@
                     <navigationItem key="navigationItem" title="Add Checklist" id="tq1-7i-zkS">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WrQ-Gg-0aC">
                             <connections>
-                                <action selector="cancel" destination="cB3-5h-iED" id="RAB-W3-zw1"/>
+                                <action selector="cancel" destination="cB3-5h-iED" id="6jh-gE-QpK"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="cYB-V7-zkM">
                             <connections>
-                                <action selector="done" destination="cB3-5h-iED" id="Ipb-xc-oCk"/>
+                                <action selector="done" destination="cB3-5h-iED" id="NPW-3o-Auc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="doneBarButton" destination="cYB-V7-zkM" id="fQo-Sf-sXf"/>
+                        <outlet property="doneBarButton" destination="cYB-V7-zkM" id="ALq-6B-Emx"/>
                         <outlet property="textField" destination="6nP-U3-uJZ" id="fNa-a7-ELu"/>
                     </connections>
                 </tableViewController>
@@ -272,7 +272,7 @@
         <!--Navigation Controller-->
         <scene sceneID="y7M-K3-3pS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6ab-VH-fok" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ListDetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6ab-VH-fok" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AMa-3y-3iG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
