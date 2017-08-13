@@ -57,6 +57,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
 
     let label = cell.viewWithTag(1001) as! UILabel
     label.text = item.checked ? "✔︎" : ""
+    label.textColor = view.tintColor
   }
   
   func configureText(for cell: UITableViewCell,

@@ -8,14 +8,14 @@
 
 import Foundation
 
-class ChecklistItem: NSObject, NSCoding{ // to work with array.index(of:)
+class ChecklistItem: NSObject, NSCoding { // to work with array.index(of:)
   var text: String
   var checked: Bool
 
-  init(text: String, checked: Bool)
-  {
+  init(text: String, checked: Bool) {
     self.text = text
     self.checked = checked
+    super.init()
   }
 
   func toggleChecked() {
@@ -28,10 +28,8 @@ class ChecklistItem: NSObject, NSCoding{ // to work with array.index(of:)
   }
 
 
-  override init() {
-    self.text = ""
-    self.checked = false
-    super.init()
+  convenience override init() {
+    self.init(text: "", checked: false)
   }
 
   required init?(coder aDecoder: NSCoder) {
