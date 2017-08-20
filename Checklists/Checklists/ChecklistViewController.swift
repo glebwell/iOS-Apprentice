@@ -11,32 +11,35 @@ import UIKit
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
 
   var checklist: Checklist!
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
+    checklist.sortChecklistItemsByDate()
     title = checklist.name
   }
-  
+
   override func tableView(_ tableView: UITableView,
                           numberOfRowsInSection section: Int) -> Int {
     return checklist.items.count
   }
-  
+
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(
       withIdentifier: "ChecklistItem", for: indexPath)
-    
+
     let item = checklist.items[indexPath.row]
-    
+
     configureText(for: cell, with: item)
     configureCheckmark(for: cell, with: item)
+    configureDate(for: cell, with: item)
+
     return cell
   }
 
   override func tableView(_ tableView: UITableView,
                           didSelectRowAt indexPath: IndexPath) {
-    
+
     if let cell = tableView.cellForRow(at: indexPath) {
       let item = checklist.items[indexPath.row]
       item.toggleChecked()
@@ -59,11 +62,19 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     label.text = item.checked ? "✔︎" : ""
     label.textColor = view.tintColor
   }
-  
-  func configureText(for cell: UITableViewCell,
+
+  private func configureText(for cell: UITableViewCell,
                      with item: ChecklistItem) {
     let label = cell.viewWithTag(1000) as! UILabel
     label.text = item.text
+  }
+
+  private func configureDate(for cell: UITableViewCell, with item: ChecklistItem) {
+    let label = cell.viewWithTag(1002) as! UILabel
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .short
+    label.text = formatter.string(from: item.dueDate)
   }
 
   func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
@@ -73,7 +84,10 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
   func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
     let nextRow = checklist.items.count
     checklist.items.append(item)
-    tableView.insertRows(at: [IndexPath(row: nextRow, section: 0)], with: .automatic)
+    let indexPath = IndexPath(row: nextRow, section: 0)
+    tableView.insertRows(at: [indexPath], with: .automatic)
+    configureDate(for: tableView.cellForRow(at: indexPath)!, with: item)
+    showSortedRows()
     dismiss(animated: true, completion: nil)
   }
 
@@ -82,9 +96,18 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
       let indexPath = IndexPath(row: index, section: 0)
       if let cell = tableView.cellForRow(at: indexPath) {
         configureText(for: cell, with: item)
+        if controller.dueDateHasChanged {
+          configureDate(for: cell, with: item)
+          showSortedRows()
+        }
       }
     }
     dismiss(animated: true, completion: nil)
+  }
+
+  private func showSortedRows() {
+    checklist.sortChecklistItemsByDate()
+    tableView.reloadData()
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -35,9 +35,11 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
 
   private var dueDate = Date()
   private var datePickerVisible = false
+  var dueDateHasChanged = false
 
   @IBAction func dateChanged(_ datePicker: UIDatePicker) {
     dueDate = datePicker.date
+    dueDateHasChanged = true
     updateDueDateLabel()
   }
 
