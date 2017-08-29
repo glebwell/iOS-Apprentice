@@ -51,6 +51,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     private var placemark: CLPlacemark?
     private var performingReverseGeocoding = false
     private var lastGeocodingError: Error?
+    private var timer: Timer?
 
     private func showLocationServicesDeniedAlert() {
         let alert = UIAlertController(title: "Location Services Disabled",
@@ -128,8 +129,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                 configureGetButton()
             }
         }
-
-
     }
 
     private func startLocationManager() {
@@ -138,6 +137,8 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation = true
+            timer = Timer.scheduledTimer(timeInterval: 60, target: self,
+                                         selector: #selector(didTimeout), userInfo: nil, repeats: false)
         }
     }
 
@@ -146,6 +147,17 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             locationManager.stopUpdatingLocation()
             locationManager.delegate = nil
             updatingLocation = false
+            timer?.invalidate()
+        }
+    }
+
+    @objc private func didTimeout() {
+        print("*** Time out")
+        if location == nil {
+            stopLocationManager()
+            lastLocationError = NSError(domain: "MyLocationErrorDomain", code: 1, userInfo: nil)
+            updateLabels()
+            configureGetButton()
         }
     }
 
