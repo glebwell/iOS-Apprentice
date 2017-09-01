@@ -13,6 +13,7 @@
 		8432FAFE1F54473900E1A361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8432FAFC1F54473900E1A361 /* Main.storyboard */; };
 		8432FB001F54473900E1A361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8432FAFF1F54473900E1A361 /* Assets.xcassets */; };
 		8432FB031F54473900E1A361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8432FB011F54473900E1A361 /* LaunchScreen.storyboard */; };
+		8432FB0B1F593E9D00E1A361 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FB0A1F593E9D00E1A361 /* LocationDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8432FAFF1F54473900E1A361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8432FB021F54473900E1A361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8432FB041F54473900E1A361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8432FB0A1F593E9D00E1A361 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		8432FAF51F54473900E1A361 /* MyLocations */ = {
 			isa = PBXGroup;
 			children = (
+				8432FB0A1F593E9D00E1A361 /* LocationDetailsViewController.swift */,
 				8432FAF61F54473900E1A361 /* AppDelegate.swift */,
 				8432FAF81F54473900E1A361 /* CurrentLocationViewController.swift */,
 				8432FAFA1F54473900E1A361 /* SecondViewController.swift */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8432FB0B1F593E9D00E1A361 /* LocationDetailsViewController.swift in Sources */,
 				8432FAFB1F54473900E1A361 /* SecondViewController.swift in Sources */,
 				8432FAF71F54473900E1A361 /* AppDelegate.swift in Sources */,
 				8432FAF91F54473900E1A361 /* CurrentLocationViewController.swift in Sources */,
