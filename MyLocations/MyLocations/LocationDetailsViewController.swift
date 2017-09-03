@@ -19,21 +19,38 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var dateLabel: UILabel!
 
     @IBAction func done() {
-        dismiss(animated: true, completion: nil)
+        let hudView = HudView.hud(inView: navigationController!.view, animated: true)
+        hudView.text = "Tagged"
+
+        afterDelay(0.6) { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
     }
 
     @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func categoryPickerDidPickCategory(_ segue: UIStoryboardSegue) {
+        let controller = segue.source as! CategoryPickerViewController
+        categoryName = controller.selectedCategoryName
+        categoryLabel.text = categoryName
+    }
+
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
+    private var categoryName = "No Category"
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        gestureRecognizer.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(gestureRecognizer)
+
         descriptionTextView.text = ""
-        categoryLabel.text = ""
+        categoryLabel.text = categoryName
 
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
         longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
@@ -45,6 +62,17 @@ class LocationDetailsViewController: UITableViewController {
         }
 
         dateLabel.text = format(date: Date())
+    }
+
+    @objc private func hideKeyboard(_ gestureRecognizer: UITapGestureRecognizer) {
+        let point = gestureRecognizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+
+        if let indexPath = indexPath, indexPath.row == 0, indexPath.section == 0 {
+            return
+        }
+
+        descriptionTextView.resignFirstResponder()
     }
 
     private func string(from placemark: CLPlacemark) -> String {
@@ -82,6 +110,22 @@ class LocationDetailsViewController: UITableViewController {
         return dateFormatter.string(from: date)
     }
 
+    // MARK: - UITableViewDelegate
+
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 0 || indexPath.section == 1 {
+            return indexPath
+        } else {
+            return nil
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
+        }
+    }
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 && indexPath.row == 0 {
             return 88
@@ -96,23 +140,10 @@ class LocationDetailsViewController: UITableViewController {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PickCategory" {
+            let cont = segue.destination as! CategoryPickerViewController
+            cont.selectedCategoryName = categoryName
+        }
+    }
 }

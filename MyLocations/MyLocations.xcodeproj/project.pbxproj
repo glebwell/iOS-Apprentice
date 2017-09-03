@@ -14,6 +14,9 @@
 		8432FB001F54473900E1A361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8432FAFF1F54473900E1A361 /* Assets.xcassets */; };
 		8432FB031F54473900E1A361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8432FB011F54473900E1A361 /* LaunchScreen.storyboard */; };
 		8432FB0B1F593E9D00E1A361 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FB0A1F593E9D00E1A361 /* LocationDetailsViewController.swift */; };
+		F71529841F5BFA2000268F36 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71529831F5BFA2000268F36 /* CategoryPickerViewController.swift */; };
+		F71529861F5C467F00268F36 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71529851F5C467F00268F36 /* HudView.swift */; };
+		F71529881F5C7FEE00268F36 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71529871F5C7FEE00268F36 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +28,10 @@
 		8432FAFF1F54473900E1A361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8432FB021F54473900E1A361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8432FB041F54473900E1A361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8432FB0A1F593E9D00E1A361 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
+		8432FB0A1F593E9D00E1A361 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		F71529831F5BFA2000268F36 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		F71529851F5C467F00268F36 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
+		F71529871F5C7FEE00268F36 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +64,14 @@
 		8432FAF51F54473900E1A361 /* MyLocations */ = {
 			isa = PBXGroup;
 			children = (
+				F71529831F5BFA2000268F36 /* CategoryPickerViewController.swift */,
 				8432FB0A1F593E9D00E1A361 /* LocationDetailsViewController.swift */,
+				F71529871F5C7FEE00268F36 /* Functions.swift */,
 				8432FAF61F54473900E1A361 /* AppDelegate.swift */,
 				8432FAF81F54473900E1A361 /* CurrentLocationViewController.swift */,
 				8432FAFA1F54473900E1A361 /* SecondViewController.swift */,
 				8432FAFC1F54473900E1A361 /* Main.storyboard */,
+				F71529851F5C467F00268F36 /* HudView.swift */,
 				8432FAFF1F54473900E1A361 /* Assets.xcassets */,
 				8432FB011F54473900E1A361 /* LaunchScreen.storyboard */,
 				8432FB041F54473900E1A361 /* Info.plist */,
@@ -144,7 +153,10 @@
 			files = (
 				8432FB0B1F593E9D00E1A361 /* LocationDetailsViewController.swift in Sources */,
 				8432FAFB1F54473900E1A361 /* SecondViewController.swift in Sources */,
+				F71529861F5C467F00268F36 /* HudView.swift in Sources */,
+				F71529881F5C7FEE00268F36 /* Functions.swift in Sources */,
 				8432FAF71F54473900E1A361 /* AppDelegate.swift in Sources */,
+				F71529841F5BFA2000268F36 /* CategoryPickerViewController.swift in Sources */,
 				8432FAF91F54473900E1A361 /* CurrentLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
