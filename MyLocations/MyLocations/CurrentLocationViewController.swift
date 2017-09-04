@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -43,6 +44,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         configureGetButton()
     }
 
+    var managedObjectContext: NSManagedObjectContext!
     private let locationManager = CLLocationManager()
     private var location: CLLocation?
     private var updatingLocation = false
@@ -108,7 +110,9 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                 print("*** Going to geocode")
                 performingReverseGeocoding = true
                 geocoder.reverseGeocodeLocation(newLocation) { [weak self] placemarks, error in
-                    print("*** Found placemarks: \(placemarks), error: \(error)")
+                    let placemarksString = placemarks != nil ? "\(placemarks!)" : "<empty>"
+                    let errorString = error != nil ? "\(error!)" : "<empty>"
+                    print("*** Found placemarks: " + placemarksString + ", error: " + errorString)
                     self?.lastLocationError = error
                     if error == nil, let p = placemarks, !p.isEmpty {
                         self?.placemark = p.last!
@@ -252,6 +256,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
 
             cont.coordinate = location!.coordinate
             cont.placemark = placemark
+            cont.managedObjectContext = managedObjectContext
         }
     }
 }
