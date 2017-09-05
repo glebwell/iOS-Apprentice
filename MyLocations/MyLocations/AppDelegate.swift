@@ -33,7 +33,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             currentLocationViewController.managedObjectContext = managedObjectContext
         }
         print(applicationDocumentsDirectory)
+        listenForFatalCoreDataNotifications()
         return true
+    }
+
+    private func listenForFatalCoreDataNotifications() {
+        NotificationCenter.default.addObserver(forName: MyManagedObjectContextSaveDidFailNotification,
+                                               object: nil, queue: OperationQueue.main, using: { [weak self] notification in
+            let alert = UIAlertController(title: "Internal Error",
+                                          message: "There was a fatal error in the app and it cannot continue.\n\n"
+                + "Press OK to terminate the app. Sorry for the inconvenience.", preferredStyle: .alert)
+
+            let action = UIAlertAction(title: "OK", style: .default) { _ in
+                let exception = NSException(name: NSExceptionName.internalInconsistencyException,
+                                            reason: "Fatal Core Data error",
+                                            userInfo: nil)
+                exception.raise()
+            }
+
+            alert.addAction(action)
+
+            self?.viewControllerForShowingAlert().present(alert, animated: true, completion: nil)
+        })
+    }
+
+    private func viewControllerForShowingAlert() -> UIViewController {
+        let rootVC = self.window!.rootViewController!
+        return rootVC.presentedViewController ?? rootVC
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

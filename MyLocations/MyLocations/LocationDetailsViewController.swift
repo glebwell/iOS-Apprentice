@@ -20,9 +20,6 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var dateLabel: UILabel!
 
     @IBAction func done() {
-        let hudView = HudView.hud(inView: navigationController!.view, animated: true)
-        hudView.text = "Tagged"
-
         let location = Location(context: managedObjectContext)
 
         location.locationDescription = descriptionTextView.text
@@ -34,12 +31,16 @@ class LocationDetailsViewController: UITableViewController {
 
         do {
             try managedObjectContext.save()
-        } catch {
-            fatalError("Error: \(error)")
-        }
 
-        afterDelay(0.6) { [weak self] in
-            self?.dismiss(animated: true, completion: nil)
+            let hudView = HudView.hud(inView: navigationController!.view, animated: true)
+            hudView.text = "Tagged"
+
+            afterDelay(0.6) { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+            }
+
+        } catch {
+            fatalCoreDataError(error)
         }
     }
 
