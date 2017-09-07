@@ -20,7 +20,16 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var dateLabel: UILabel!
 
     @IBAction func done() {
-        let location = Location(context: managedObjectContext)
+        let hudView = HudView.hud(inView: navigationController!.view, animated: true)
+
+        let location: Location
+        if let temp = locationToEdit {
+            hudView.text = "Updated"
+            location = temp
+        } else {
+            hudView.text = "Tagged"
+            location = Location(context: managedObjectContext)
+        }
 
         location.locationDescription = descriptionTextView.text
         location.category = categoryName
@@ -31,9 +40,6 @@ class LocationDetailsViewController: UITableViewController {
 
         do {
             try managedObjectContext.save()
-
-            let hudView = HudView.hud(inView: navigationController!.view, animated: true)
-            hudView.text = "Tagged"
 
             afterDelay(0.6) { [weak self] in
                 self?.dismiss(animated: true, completion: nil)
@@ -58,17 +64,33 @@ class LocationDetailsViewController: UITableViewController {
     var placemark: CLPlacemark?
     var managedObjectContext: NSManagedObjectContext!
     var date = Date()
+    var locationToEdit: Location? {
+        didSet {
+            if let location = locationToEdit {
+                descriptionText = location.locationDescription
+                categoryName = location.category
+                date = location.date
+                coordinate = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+                placemark = location.placemark
+            }
+        }
+    }
+    var descriptionText = ""
 
     private var categoryName = "No Category"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let location = locationToEdit {
+            title = "Edit Location"
+        }
+
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         gestureRecognizer.cancelsTouchesInView = false
         tableView.addGestureRecognizer(gestureRecognizer)
 
-        descriptionTextView.text = ""
+        descriptionTextView.text = descriptionText
         categoryLabel.text = categoryName
 
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)

@@ -17,6 +17,8 @@
 		8432FB0E1F5D2EEF00E1A361 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8432FB0C1F5D2EEF00E1A361 /* DataModel.xcdatamodeld */; };
 		8432FB111F5D327600E1A361 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FB0F1F5D327600E1A361 /* Location+CoreDataClass.swift */; };
 		8432FB121F5D327600E1A361 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FB101F5D327600E1A361 /* Location+CoreDataProperties.swift */; };
+		8432FB141F5EF59800E1A361 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FB131F5EF59800E1A361 /* LocationsViewController.swift */; };
+		8432FB161F6014A000E1A361 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FB151F6014A000E1A361 /* LocationCell.swift */; };
 		F71529841F5BFA2000268F36 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71529831F5BFA2000268F36 /* CategoryPickerViewController.swift */; };
 		F71529861F5C467F00268F36 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71529851F5C467F00268F36 /* HudView.swift */; };
 		F71529881F5C7FEE00268F36 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71529871F5C7FEE00268F36 /* Functions.swift */; };
@@ -35,6 +37,8 @@
 		8432FB0D1F5D2EEF00E1A361 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		8432FB0F1F5D327600E1A361 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8432FB101F5D327600E1A361 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8432FB131F5EF59800E1A361 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		8432FB151F6014A000E1A361 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		F71529831F5BFA2000268F36 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		F71529851F5C467F00268F36 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		F71529871F5C7FEE00268F36 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -81,7 +85,9 @@
 				8432FB011F54473900E1A361 /* LaunchScreen.storyboard */,
 				8432FB0F1F5D327600E1A361 /* Location+CoreDataClass.swift */,
 				8432FB101F5D327600E1A361 /* Location+CoreDataProperties.swift */,
+				8432FB151F6014A000E1A361 /* LocationCell.swift */,
 				8432FB0A1F593E9D00E1A361 /* LocationDetailsViewController.swift */,
+				8432FB131F5EF59800E1A361 /* LocationsViewController.swift */,
 				8432FAFC1F54473900E1A361 /* Main.storyboard */,
 				8432FAFA1F54473900E1A361 /* SecondViewController.swift */,
 			);
@@ -164,7 +170,9 @@
 				8432FB0E1F5D2EEF00E1A361 /* DataModel.xcdatamodeld in Sources */,
 				8432FAFB1F54473900E1A361 /* SecondViewController.swift in Sources */,
 				F71529861F5C467F00268F36 /* HudView.swift in Sources */,
+				8432FB141F5EF59800E1A361 /* LocationsViewController.swift in Sources */,
 				8432FB121F5D327600E1A361 /* Location+CoreDataProperties.swift in Sources */,
+				8432FB161F6014A000E1A361 /* LocationCell.swift in Sources */,
 				F71529881F5C7FEE00268F36 /* Functions.swift in Sources */,
 				8432FAF71F54473900E1A361 /* AppDelegate.swift in Sources */,
 				8432FB111F5D327600E1A361 /* Location+CoreDataClass.swift in Sources */,
