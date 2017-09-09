@@ -105,6 +105,7 @@ class LocationDetailsViewController: UITableViewController {
         dateLabel.text = format(date: date)
     }
 
+
     @objc private func hideKeyboard(_ gestureRecognizer: UITapGestureRecognizer) {
         let point = gestureRecognizer.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: point)

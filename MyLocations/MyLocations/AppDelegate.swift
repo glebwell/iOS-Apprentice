@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let navCont = tabBarViewControllers[1] as! UINavigationController
             let locationsVC = navCont.viewControllers[0] as! LocationsViewController
             locationsVC.managedObjectContext = managedObjectContext
+            let _ = locationsVC.view // force load LocationsViewController view to fix bug with CoreData(NSFetchResultsController cache problem)
         }
         print(applicationDocumentsDirectory)
         listenForFatalCoreDataNotifications()
