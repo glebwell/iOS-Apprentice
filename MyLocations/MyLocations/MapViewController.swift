@@ -19,9 +19,6 @@ class MapViewController: UIViewController {
                 object: managedObjectContext,
                 queue: OperationQueue.main) { [weak self] notification in
                     if self != nil, self!.isViewLoaded {
-                        //self!.updateLocations()
-
-                        // TODO: implement efficient update of location pins
                         guard let userInfo = notification.userInfo else { return }
 
                         if let deletedLocations = userInfo[NSDeletedObjectsKey] as? Set<Location>, !deletedLocations.isEmpty {
@@ -55,9 +52,6 @@ class MapViewController: UIViewController {
                             }
                             print("------------------------------")
                         }
-                        //print(dictionary["inserted"])
-                        //print(dictionary["deleted"])
-                        //print(dictionary["updated"])
                     }
                 }
         }
@@ -180,45 +174,8 @@ extension MapViewController: MKMapViewDelegate {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+extension MapViewController: UINavigationBarDelegate {
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
+}
