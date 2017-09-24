@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var managedObjectContext: NSManagedObjectContext = self.persistentContainer.viewContext
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        customizeAppearance()
         let tabBarController = window!.rootViewController as! UITabBarController
         if let tabBarViewControllers = tabBarController.viewControllers, !tabBarViewControllers.isEmpty {
             let currentLocationViewController = tabBarViewControllers[0] as! CurrentLocationViewController
@@ -68,6 +69,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func viewControllerForShowingAlert() -> UIViewController {
         let rootVC = self.window!.rootViewController!
         return rootVC.presentedViewController ?? rootVC
+    }
+
+    private func customizeAppearance() {
+        UINavigationBar.appearance().barTintColor = UIColor.black
+        UINavigationBar.appearance().titleTextAttributes = [ NSForegroundColorAttributeName: UIColor.white ]
+        UITabBar.appearance().barTintColor = UIColor.black
+
+        let tintColor = UIColor(red: 255/255.0, green: 238/255.0, blue: 136/255.0, alpha: 1.0)
+        UITabBar.appearance().tintColor = tintColor
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
