@@ -139,6 +139,7 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        mapView.tintColor = UIColor(white: 0.0, alpha: 0.5)
         guard annotation is Location else {
             return nil
         }
