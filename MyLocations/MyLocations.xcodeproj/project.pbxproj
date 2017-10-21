@@ -11,7 +11,6 @@
 		8432FAF91F54473900E1A361 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FAF81F54473900E1A361 /* CurrentLocationViewController.swift */; };
 		8432FAFE1F54473900E1A361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8432FAFC1F54473900E1A361 /* Main.storyboard */; };
 		8432FB001F54473900E1A361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8432FAFF1F54473900E1A361 /* Assets.xcassets */; };
-		8432FB031F54473900E1A361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8432FB011F54473900E1A361 /* LaunchScreen.storyboard */; };
 		8432FB0B1F593E9D00E1A361 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FB0A1F593E9D00E1A361 /* LocationDetailsViewController.swift */; };
 		8432FB0E1F5D2EEF00E1A361 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8432FB0C1F5D2EEF00E1A361 /* DataModel.xcdatamodeld */; };
 		8432FB111F5D327600E1A361 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FB0F1F5D327600E1A361 /* Location+CoreDataClass.swift */; };
@@ -23,6 +22,7 @@
 		F71529841F5BFA2000268F36 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71529831F5BFA2000268F36 /* CategoryPickerViewController.swift */; };
 		F71529861F5C467F00268F36 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71529851F5C467F00268F36 /* HudView.swift */; };
 		F71529881F5C7FEE00268F36 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71529871F5C7FEE00268F36 /* Functions.swift */; };
+		F716F9CA1F9B7BD600B431A6 /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = F716F9C91F9B7BD600B431A6 /* Sound */; };
 		F723B5471F77CC67000E5E3F /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F723B5461F77CC67000E5E3F /* UIImage+Resize.swift */; };
 		F723B5491F77D600000E5E3F /* String+AddText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F723B5481F77D600000E5E3F /* String+AddText.swift */; };
 		F723B54B1F77E324000E5E3F /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F723B54A1F77E324000E5E3F /* MyTabBarController.swift */; };
@@ -36,7 +36,6 @@
 		8432FAF81F54473900E1A361 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
 		8432FAFD1F54473900E1A361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8432FAFF1F54473900E1A361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8432FB021F54473900E1A361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8432FB041F54473900E1A361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8432FB0A1F593E9D00E1A361 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		8432FB0D1F5D2EEF00E1A361 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		F71529831F5BFA2000268F36 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		F71529851F5C467F00268F36 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		F71529871F5C7FEE00268F36 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		F716F9C91F9B7BD600B431A6 /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
 		F723B5461F77CC67000E5E3F /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		F723B5481F77D600000E5E3F /* String+AddText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+AddText.swift"; sourceTree = "<group>"; };
 		F723B54A1F77E324000E5E3F /* MyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
@@ -88,6 +88,7 @@
 		8432FAF51F54473900E1A361 /* MyLocations */ = {
 			isa = PBXGroup;
 			children = (
+				F716F9C91F9B7BD600B431A6 /* Sound */,
 				8432FAF61F54473900E1A361 /* AppDelegate.swift */,
 				8432FAFF1F54473900E1A361 /* Assets.xcassets */,
 				F71529831F5BFA2000268F36 /* CategoryPickerViewController.swift */,
@@ -96,7 +97,6 @@
 				F71529871F5C7FEE00268F36 /* Functions.swift */,
 				F71529851F5C467F00268F36 /* HudView.swift */,
 				8432FB041F54473900E1A361 /* Info.plist */,
-				8432FB011F54473900E1A361 /* LaunchScreen.storyboard */,
 				8432FB0F1F5D327600E1A361 /* Location+CoreDataClass.swift */,
 				8432FB101F5D327600E1A361 /* Location+CoreDataProperties.swift */,
 				8432FB151F6014A000E1A361 /* LocationCell.swift */,
@@ -185,8 +185,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8432FB031F54473900E1A361 /* LaunchScreen.storyboard in Resources */,
 				8432FB001F54473900E1A361 /* Assets.xcassets in Resources */,
+				F716F9CA1F9B7BD600B431A6 /* Sound in Resources */,
 				8432FAFE1F54473900E1A361 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,14 +227,6 @@
 				8432FAFD1F54473900E1A361 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8432FB011F54473900E1A361 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8432FB021F54473900E1A361 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -337,6 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = MyLocations/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -351,6 +344,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = MyLocations/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
