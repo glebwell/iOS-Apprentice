@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F70AE9451FAA42E700B42ECA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AE9441FAA42E700B42ECA /* SearchResult.swift */; };
 		F7ABDFCC1FA5E1590066ECF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ABDFCB1FA5E1590066ECF8 /* AppDelegate.swift */; };
 		F7ABDFCE1FA5E1590066ECF8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ABDFCD1FA5E1590066ECF8 /* SearchViewController.swift */; };
 		F7ABDFD11FA5E1590066ECF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7ABDFCF1FA5E1590066ECF8 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F70AE9441FAA42E700B42ECA /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		F7ABDFC81FA5E1590066ECF8 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7ABDFCB1FA5E1590066ECF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7ABDFCD1FA5E1590066ECF8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -55,11 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				F7ABDFCB1FA5E1590066ECF8 /* AppDelegate.swift */,
-				F7ABDFCD1FA5E1590066ECF8 /* SearchViewController.swift */,
-				F7ABDFCF1FA5E1590066ECF8 /* Main.storyboard */,
 				F7ABDFD21FA5E1590066ECF8 /* Assets.xcassets */,
-				F7ABDFD41FA5E1590066ECF8 /* LaunchScreen.storyboard */,
 				F7ABDFD71FA5E1590066ECF8 /* Info.plist */,
+				F7ABDFD41FA5E1590066ECF8 /* LaunchScreen.storyboard */,
+				F7ABDFCF1FA5E1590066ECF8 /* Main.storyboard */,
+				F70AE9441FAA42E700B42ECA /* SearchResult.swift */,
+				F7ABDFCD1FA5E1590066ECF8 /* SearchViewController.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7ABDFCE1FA5E1590066ECF8 /* SearchViewController.swift in Sources */,
+				F70AE9451FAA42E700B42ECA /* SearchResult.swift in Sources */,
 				F7ABDFCC1FA5E1590066ECF8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +301,7 @@
 				F7ABDFDC1FA5E1590066ECF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
