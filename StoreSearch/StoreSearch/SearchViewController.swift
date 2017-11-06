@@ -12,6 +12,11 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        performSearch()
+    }
 
     struct TableViewCellIdentifiers {
         static let searchResultCell = "SearchResultCell"
@@ -22,11 +27,12 @@ class SearchViewController: UIViewController {
     fileprivate var searchResults: [SearchResult] = []
     fileprivate var hasSearched = false
     fileprivate var isLoading = false
+    fileprivate var dataTask: URLSessionDataTask?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.becomeFirstResponder()
-        tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 108, left: 0, bottom: 0, right: 0)
         tableView.rowHeight = 80
         var cellNib = UINib(nibName: TableViewCellIdentifiers.searchResultCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.searchResultCell)
@@ -38,27 +44,23 @@ class SearchViewController: UIViewController {
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.loadingCell)
     }
 
-    fileprivate func iTunesURL(searchText: String) -> URL {
+    fileprivate func iTunesURL(searchText: String, category: Int) -> URL {
+        let entityName: String
+        switch category{
+        case 1: entityName = "musicTrack"
+        case 2: entityName = "software"
+        case 3: entityName = "ebook"
+        default: entityName = ""
+        }
         let escapedSearchText = searchText.addingPercentEncoding(
             withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200", escapedSearchText)
+        let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200&entity=%@",
+                               escapedSearchText, entityName)
         let url = URL(string: urlString)
         return url!
     }
 
-    fileprivate func performStoreRequest(with url: URL) -> String? {
-        do {
-            return try String(contentsOf: url, encoding: .utf8)
-        } catch {
-            print("Download Error: \(error)")
-            return nil
-        }
-    }
-
-    fileprivate func parse(json: String) -> [String: Any]? {
-        guard let data = json.data(using: .utf8, allowLossyConversion: false)
-            else { return nil }
-
+    fileprivate func parse(json data: Data) -> [String: Any]? {
         do {
             return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
         } catch {
@@ -202,43 +204,59 @@ class SearchViewController: UIViewController {
         default: return kind
         }
     }
-}
 
-extension SearchViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    fileprivate func performSearch() {
         if !searchBar.text!.isEmpty {
             hasSearched = true
             searchBar.resignFirstResponder()
 
+            dataTask?.cancel()
             isLoading = true
             tableView.reloadData()
 
             searchResults = []
 
-            let url = iTunesURL(searchText: searchBar.text!)
-            print("URL: '\(url)'")
+            let url = iTunesURL(searchText: searchBar.text!, category: segmentedControl.selectedSegmentIndex)
 
-            let queue = DispatchQueue.global()
+            let session = URLSession.shared
 
-            queue.async { [weak self] in
-                if let jsonString = self?.performStoreRequest(with: url) {
-                    if let jsonDictionary = self?.parse(json: jsonString) {
-                        print("Dictionary \(jsonDictionary)")
-                        self?.searchResults = self?.parse(dictionary: jsonDictionary) ?? []
-                        self?.searchResults.sort(by: <)
+            dataTask = session.dataTask(with: url, completionHandler: {
+                [weak self] data, response, error in
 
-                        DispatchQueue.main.async { [weak self] in
-                            self?.isLoading = false
-                            self?.tableView.reloadData()
+                var dataFounded = false
+                if let error = error as? NSError, error.code == -999 {
+                    return // Search was cancelled
+                } else if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        if let data = data, let jsonDictionary = self?.parse(json: data) {
+                            self?.searchResults = self?.parse(dictionary: jsonDictionary) ?? []
+                            self?.searchResults.sort(by: <)
+
+                            dataFounded = true
                         }
                     }
                 } else {
-                    DispatchQueue.main.async { [weak self] in
+                    print("Failure! \(response)")
+                }
+
+                DispatchQueue.main.async { [weak self] in
+                    self?.isLoading = false
+                    self?.tableView.reloadData()
+                    if !dataFounded {
+                        self?.hasSearched = false
                         self?.showNetworkError()
                     }
                 }
-            }
+            })
+
+            dataTask?.resume()
         }
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        performSearch()
     }
 }
 
