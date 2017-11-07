@@ -189,22 +189,6 @@ class SearchViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 
-    fileprivate func kindForDisplay(_ kind: String) -> String {
-        switch kind {
-        case "album": return "Album"
-        case "audiobook": return "Audio Book"
-        case "book": return "Book"
-        case "ebook": return "E-Book"
-        case "feature-movie": return "Movie"
-        case "music-video": return "Music Video"
-        case "podcase": return "Podcast"
-        case "software": return "App"
-        case "song": return "Song"
-        case "tv-episode": return "TV Episode"
-        default: return kind
-        }
-    }
-
     fileprivate func performSearch() {
         if !searchBar.text!.isEmpty {
             hasSearched = true
@@ -239,7 +223,7 @@ class SearchViewController: UIViewController {
                     print("Failure! \(response)")
                 }
 
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async {
                     self?.isLoading = false
                     self?.tableView.reloadData()
                     if !dataFounded {
@@ -290,13 +274,7 @@ extension SearchViewController: UITableViewDataSource {
                                                  for: indexPath) as! SearchResultCell
 
             let searchResult = searchResults[indexPath.row]
-            if searchResult.artistName.isEmpty {
-                cell.artistNameLabel.text = "Unknown"
-            } else {
-                cell.artistNameLabel.text = String(format: "%@ (%@)",
-                                                   searchResult.artistName, kindForDisplay(searchResult.kind))
-            }
-            cell.nameLabel.text = searchResult.name
+            cell.configure(for: searchResult)
             return cell
         }
     }
