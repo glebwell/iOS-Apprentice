@@ -284,6 +284,14 @@ extension SearchViewController: UITableViewDataSource {
         performSegue(withIdentifier: "ShowDetail", sender: indexPath)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail",
+            let detailVC = segue.destination as? DetailViewController,
+            let sender = sender as? IndexPath {
+                detailVC.searchResult = searchResults[sender.row]
+        }
+    }
+
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return searchResults.isEmpty || isLoading ? nil : indexPath
     }
