@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
 
     var searchResult: SearchResult!
     private var downloadTask: URLSessionDownloadTask?
-    private enum AnimationStyle {
+    fileprivate enum AnimationStyle {
         case slide
         case fade
     }

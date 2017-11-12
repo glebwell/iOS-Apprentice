@@ -66,6 +66,7 @@ class SearchViewController: UIViewController {
             as? LandscapeViewController
 
         if let controller = landscapeViewController {
+            controller.searchResults = searchResults
             controller.view.frame = view.bounds
             view.addSubview(controller.view)
             addChildViewController(controller)
