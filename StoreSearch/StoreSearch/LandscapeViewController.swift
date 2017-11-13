@@ -20,7 +20,7 @@ class LandscapeViewController: UIViewController {
         }, completion: nil)
     }
 
-    var searchResults = [SearchResult]()
+    var search: Search!
     private var firstTime = true
     private var downloadTasks = [URLSessionDownloadTask]()
 
@@ -51,7 +51,9 @@ class LandscapeViewController: UIViewController {
 
         if firstTime {
             firstTime = false
-            tileButtons(searchResults)
+            if case .results(let list) = search.state {
+                tileButtons(list)
+            }
         }
     }
 

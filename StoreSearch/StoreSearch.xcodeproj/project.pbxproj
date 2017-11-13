@@ -14,6 +14,7 @@
 		F70C8F601FAE200100F3C4E0 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F70C8F5F1FAE200100F3C4E0 /* SearchResultCell.xib */; };
 		F70C8F621FAE2FF400F3C4E0 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C8F611FAE2FF400F3C4E0 /* SearchResultCell.swift */; };
 		F70C8F641FAE37C300F3C4E0 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F70C8F631FAE37C300F3C4E0 /* NothingFoundCell.xib */; };
+		F70E57171FB9FCD7001AA2ED /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70E57161FB9FCD7001AA2ED /* Search.swift */; };
 		F71395811FB7011E00752804 /* NothingFoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71395801FB7011E00752804 /* NothingFoundCell.swift */; };
 		F71395831FB70A9400752804 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71395821FB70A9400752804 /* LoadingCell.swift */; };
 		F71395851FB7183B00752804 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71395841FB7183B00752804 /* GradientView.swift */; };
@@ -36,6 +37,7 @@
 		F70C8F5F1FAE200100F3C4E0 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		F70C8F611FAE2FF400F3C4E0 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		F70C8F631FAE37C300F3C4E0 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
+		F70E57161FB9FCD7001AA2ED /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		F71395801FB7011E00752804 /* NothingFoundCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NothingFoundCell.swift; sourceTree = "<group>"; };
 		F71395821FB70A9400752804 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		F71395841FB7183B00752804 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				F7ABDFCF1FA5E1590066ECF8 /* Main.storyboard */,
 				F71395801FB7011E00752804 /* NothingFoundCell.swift */,
 				F70C8F631FAE37C300F3C4E0 /* NothingFoundCell.xib */,
+				F70E57161FB9FCD7001AA2ED /* Search.swift */,
 				F70AE9441FAA42E700B42ECA /* SearchResult.swift */,
 				F70C8F611FAE2FF400F3C4E0 /* SearchResultCell.swift */,
 				F70C8F5F1FAE200100F3C4E0 /* SearchResultCell.xib */,
@@ -192,6 +195,7 @@
 				F71395871FB72AA000752804 /* BounceAnimationController.swift in Sources */,
 				F713958B1FB756DC00752804 /* LandscapeViewController.swift in Sources */,
 				F7ABDFCC1FA5E1590066ECF8 /* AppDelegate.swift in Sources */,
+				F70E57171FB9FCD7001AA2ED /* Search.swift in Sources */,
 				84AA16521FB1A41D00FB51F6 /* UIImageView+DownloadImage.swift in Sources */,
 				F71395891FB7314700752804 /* SlideOutAnimationController.swift in Sources */,
 			);
