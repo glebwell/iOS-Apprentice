@@ -90,6 +90,9 @@ class SearchViewController: UIViewController {
                 controller.view.removeFromSuperview()
                 controller.removeFromParentViewController()
                 self.landscapeViewController = nil
+                if self.presentedViewController != nil {
+                    self.dismiss(animated: true, completion: nil)
+                }
             })
         }
     }
@@ -115,6 +118,7 @@ class SearchViewController: UIViewController {
                                         self.showNetworkError()
                                     }
                                     self.tableView.reloadData()
+                                    self.landscapeViewController?.searchResultsReceived()
             })
             tableView.reloadData()
             searchBar.resignFirstResponder()
