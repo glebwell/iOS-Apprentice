@@ -20,6 +20,7 @@
 		F71395891FB7314700752804 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71395881FB7314700752804 /* SlideOutAnimationController.swift */; };
 		F713958B1FB756DC00752804 /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F713958A1FB756DC00752804 /* LandscapeViewController.swift */; };
 		F713958D1FB7861B00752804 /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F713958C1FB7861B00752804 /* FadeOutAnimationController.swift */; };
+		F714A3A41FCDBA83004B4057 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F714A3A61FCDBA83004B4057 /* InfoPlist.strings */; };
 		F728435C1FCB030400700C35 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F728435E1FCB030400700C35 /* NothingFoundCell.xib */; };
 		F72843601FCB094A00700C35 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72843621FCB094A00700C35 /* LoadingCell.xib */; };
 		F72843671FCB1B5200700C35 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72843691FCB1B5200700C35 /* SearchResultCell.xib */; };
@@ -44,6 +45,8 @@
 		F71395881FB7314700752804 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 		F713958A1FB756DC00752804 /* LandscapeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
 		F713958C1FB7861B00752804 /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
+		F714A3A51FCDBA83004B4057 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F714A3A81FCDBAB5004B4057 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F728435D1FCB030400700C35 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
 		F728435F1FCB041E00700C35 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
 		F72843611FCB094A00700C35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 				F713958C1FB7861B00752804 /* FadeOutAnimationController.swift */,
 				F71395841FB7183B00752804 /* GradientView.swift */,
 				F7ABDFD71FA5E1590066ECF8 /* Info.plist */,
+				F714A3A61FCDBA83004B4057 /* InfoPlist.strings */,
 				F713958A1FB756DC00752804 /* LandscapeViewController.swift */,
 				F71395821FB70A9400752804 /* LoadingCell.swift */,
 				F72843621FCB094A00700C35 /* LoadingCell.xib */,
@@ -177,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7ABDFD31FA5E1590066ECF8 /* Assets.xcassets in Resources */,
+				F714A3A41FCDBA83004B4057 /* InfoPlist.strings in Resources */,
 				F728436C1FCB1F3700700C35 /* Localizable.strings in Resources */,
 				F72843601FCB094A00700C35 /* LoadingCell.xib in Resources */,
 				F72843671FCB1B5200700C35 /* SearchResultCell.xib in Resources */,
@@ -213,6 +218,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F714A3A61FCDBA83004B4057 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F714A3A51FCDBA83004B4057 /* Base */,
+				F714A3A81FCDBAB5004B4057 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		F728435E1FCB030400700C35 /* NothingFoundCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
