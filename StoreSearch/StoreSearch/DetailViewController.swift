@@ -29,7 +29,15 @@ class DetailViewController: UIViewController {
         }
     }
 
-    var searchResult: SearchResult!
+    var searchResult: SearchResult! {
+        didSet {
+            if isViewLoaded {
+                updateUI()
+            }
+        }
+    }
+    var isPopUp = false
+
     private var downloadTask: URLSessionDownloadTask?
     fileprivate enum AnimationStyle {
         case slide
@@ -51,14 +59,24 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.clear
+
         view.tintColor = UIColor(red: 20/255, green: 160/255, blue: 150/255, alpha: 1)
         popupView.layer.cornerRadius = 10
 
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(close))
-        gestureRecognizer.cancelsTouchesInView = false
-        gestureRecognizer.delegate = self
-        view.addGestureRecognizer(gestureRecognizer)
+        if isPopUp {
+            let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(close))
+            gestureRecognizer.cancelsTouchesInView = false
+            gestureRecognizer.delegate = self
+            view.addGestureRecognizer(gestureRecognizer)
+            view.backgroundColor = UIColor.clear
+        } else {
+            view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
+            popupView.isHidden = true
+        }
+
+        if let displayName = Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] as? String {
+            title = displayName
+        }
 
         updateUI()
     }
@@ -92,6 +110,8 @@ class DetailViewController: UIViewController {
             if let largeURL = URL(string: result.artworkLargeURL) {
                 downloadTask = artworkImageView.loadImage(url: largeURL)
             }
+
+            popupView.isHidden = false
         }
     }
 }
