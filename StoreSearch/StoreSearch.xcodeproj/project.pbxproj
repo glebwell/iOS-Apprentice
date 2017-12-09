@@ -21,6 +21,7 @@
 		F713958B1FB756DC00752804 /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F713958A1FB756DC00752804 /* LandscapeViewController.swift */; };
 		F713958D1FB7861B00752804 /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F713958C1FB7861B00752804 /* FadeOutAnimationController.swift */; };
 		F714A3A41FCDBA83004B4057 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F714A3A61FCDBA83004B4057 /* InfoPlist.strings */; };
+		F71950F31FDC29B200F3BF5B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71950F21FDC29B200F3BF5B /* MenuViewController.swift */; };
 		F728435C1FCB030400700C35 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F728435E1FCB030400700C35 /* NothingFoundCell.xib */; };
 		F72843601FCB094A00700C35 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72843621FCB094A00700C35 /* LoadingCell.xib */; };
 		F72843671FCB1B5200700C35 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72843691FCB1B5200700C35 /* SearchResultCell.xib */; };
@@ -47,6 +48,7 @@
 		F713958C1FB7861B00752804 /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
 		F714A3A51FCDBA83004B4057 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F714A3A81FCDBAB5004B4057 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F71950F21FDC29B200F3BF5B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		F728435D1FCB030400700C35 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
 		F728435F1FCB041E00700C35 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
 		F72843611FCB094A00700C35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				F72843621FCB094A00700C35 /* LoadingCell.xib */,
 				F728436A1FCB1F3700700C35 /* Localizable.strings */,
 				F7ABDFCF1FA5E1590066ECF8 /* Main.storyboard */,
+				F71950F21FDC29B200F3BF5B /* MenuViewController.swift */,
 				F71395801FB7011E00752804 /* NothingFoundCell.swift */,
 				F728435E1FCB030400700C35 /* NothingFoundCell.xib */,
 				F70E57161FB9FCD7001AA2ED /* Search.swift */,
@@ -204,6 +207,7 @@
 				F70AE9451FAA42E700B42ECA /* SearchResult.swift in Sources */,
 				F70C8F621FAE2FF400F3C4E0 /* SearchResultCell.swift in Sources */,
 				F71395811FB7011E00752804 /* NothingFoundCell.swift in Sources */,
+				F71950F31FDC29B200F3BF5B /* MenuViewController.swift in Sources */,
 				84AA16541FB2099E00FB51F6 /* DetailViewController.swift in Sources */,
 				F71395831FB70A9400752804 /* LoadingCell.swift in Sources */,
 				F71395871FB72AA000752804 /* BounceAnimationController.swift in Sources */,
