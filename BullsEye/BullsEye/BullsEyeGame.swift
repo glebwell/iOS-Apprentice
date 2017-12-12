@@ -9,15 +9,15 @@
 import UIKit
 import QuartzCore
 
-class ViewController: UIViewController {
+class BullsEyeGame: UIViewController {
   @IBOutlet weak var slider: UISlider!
   @IBOutlet weak var targetLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var roundLabel: UILabel!
 
   private var currentValue = 0
-  private var targetValue = 0
-  private var score = 0
+  var targetValue = 0
+  var score = 0
   private var round = 0
 
   override func viewDidLoad() {
@@ -81,6 +81,24 @@ class ViewController: UIViewController {
     present(alert, animated: true, completion: nil)
   }
 
+  func check(guess: Int) -> Int {
+    currentValue = guess
+    let difference = abs(targetValue - currentValue)
+    var points = 100 - difference
+
+    if difference == 0 {
+      points += 100
+    } else if difference < 5 {
+      if difference == 1 {
+        points += 50
+      }
+    }
+
+    score += points
+
+    return score
+  }
+
   private func configureSlider() {
     let thumbImageNormal = #imageLiteral(resourceName: "SliderThumb-Normal")
     slider.setThumbImage(thumbImageNormal, for: .normal)
@@ -99,7 +117,7 @@ class ViewController: UIViewController {
     slider.setMaximumTrackImage(trackRightResizable, for: .normal)
   }
 
-  private func startNewGame() {
+  func startNewGame() {
     score = 0
     round = 0
     startNewRound()
@@ -113,7 +131,7 @@ class ViewController: UIViewController {
     round += 1
     targetValue = 1 + Int(arc4random_uniform(100))
     currentValue = 50
-    slider.value = Float(currentValue)
+    slider?.value = Float(currentValue)
   }
   
   private func updateLabels() {
